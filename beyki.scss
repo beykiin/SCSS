@@ -1,0 +1,55 @@
+@import "beyki2";
+$myColor: aliceblue;
+$secondColor: orangered;
+%myBox{
+    height: 200px;
+    width: 100px;
+}
+%box{
+    width: 250px;
+    height: 250px;
+    display: inline-block;
+}
+div{
+    @extend %myBox;
+    background-color: $myColor;
+    &:hover{
+        background-color: $secondColor;
+        transform: translateX(20%);
+    }
+    p{
+        color: purple;
+    }
+    
+} 
+.green{
+    @extend %box;
+    border: 5px solid green;
+}
+.red{
+    @extend %box;
+    border: 5px solid red;
+}
+@mixin createBox(){
+    width: 400px;
+    height: 400px;
+    background-color: aquamarine;
+    border: 5px solid black;
+    display: inline-block;
+}
+@mixin createBox2($width,$height,$bgColor,$border){
+    width: $width;
+    height: $height;
+    background-color: $bgColor;
+    border: $border;
+    display: inline-block;
+}
+.deneme{
+    @include createBox();
+}
+.deneme2{
+    @include createBox2(300px,300px,white,5px solid black);
+}
+.deneme3{
+    @include createBox2(100px,100px,red,5px solid purple)
+}
